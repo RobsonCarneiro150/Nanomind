@@ -26,8 +26,8 @@
     }
 
     body {
-      background-color: var(--light);
-      color: var(--dark);
+      background-color: #0d1117;
+      color: #f0f0f0;
       line-height: 1.6;
       overflow-x: hidden;
     }
@@ -129,7 +129,7 @@
 
     section {
       margin-bottom: 3rem;
-      background: #fff;
+      background: #161b22;
       padding: 2.5rem;
       border-radius: 16px;
       box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
@@ -155,7 +155,7 @@
 
     h2 {
       margin-bottom: 1.5rem;
-      color: var(--secondary);
+      color: #f0f6fc;
       font-size: 2rem;
       position: relative;
       display: inline-block;
@@ -173,7 +173,7 @@
     }
 
     p {
-      color: var(--gray);
+      color: #c9d1d9;
       margin-bottom: 1.5rem;
       line-height: 1.8;
     }
@@ -187,7 +187,7 @@
       padding: 0.75rem 0;
       position: relative;
       padding-left: 1.75rem;
-      color: var(--dark);
+      color: #f0f0f0;
     }
 
     ul li::before {
@@ -318,7 +318,7 @@
     }
 
     .tech-item {
-      background: #fff;
+      background: #161b22;
       border-radius: 8px;
       padding: 1.5rem;
       display: flex;
@@ -342,7 +342,7 @@
 
     .tech-item span {
       font-weight: 600;
-      color: var(--secondary);
+      color: #f0f6fc;
       font-size: 0.9rem;
     }
 
@@ -354,7 +354,7 @@
 
     .faq-question {
       font-weight: 700;
-      color: var(--secondary);
+      color: #f0f6fc;
       margin-bottom: 0.5rem;
       display: flex;
       align-items: center;
@@ -368,7 +368,7 @@
     }
 
     .faq-answer {
-      color: var(--gray);
+      color: #c9d1d9;
       padding-left: 1.75rem;
     }
 
@@ -380,7 +380,7 @@
     }
 
     .contact-card {
-      background: #f8fafc;
+      background: #21262d;
       padding: 1.5rem;
       border-radius: 8px;
       display: flex;
@@ -390,7 +390,7 @@
     }
 
     .contact-card:hover {
-      background: #fff;
+      background: #161b22;
       box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
     }
 
@@ -409,12 +409,12 @@
     .contact-details h3 {
       font-size: 1.1rem;
       margin-bottom: 0.25rem;
-      color: var(--secondary);
+      color: #f0f6fc;
     }
 
     .contact-details p {
       margin: 0;
-      color: var(--gray);
+      color: #c9d1d9;
     }
 
     @media (max-width: 768px) {
@@ -444,7 +444,12 @@
     .floating {
       animation: float 3s ease-in-out infinite;
     }
-  </style>
+  
+    section:hover, .tech-item:hover, .contact-card:hover {
+      background-color: #1f2937 !important;
+    }
+
+</style>
 </head>
 
 <body>
