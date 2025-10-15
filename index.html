@@ -1,648 +1,206 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
-
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Nanomind - Automação Inteligente</title>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-  <style>
-    :root {
-      --primary: #2563eb;
-      --primary-dark: #1d4ed8;
-      --secondary: #0f172a;
-      --accent: #f59e0b;
-      --light: #f8fafc;
-      --dark: #1e293b;
-      --gray: #64748b;
-    }
-
-    * {
-      margin: 0;
-      padding: 0;
-      box-sizing: border-box;
-      font-family: 'Inter', sans-serif;
-    }
-
-    body {
-      background-color: #0d1117;
-      color: #f0f0f0;
-      line-height: 1.6;
-      overflow-x: hidden;
-    }
-
-    header {
-      background: linear-gradient(135deg, var(--secondary), var(--primary-dark));
-      padding: 2rem 1rem;
-      text-align: center;
-      color: #fff;
-      position: relative;
-      overflow: hidden;
-    }
-
-    header::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 100%;
-      background: url('https://images.unsplash.com/photo-1620712943543-bcc4688e7485?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80') center/cover;
-      opacity: 0.15;
-      z-index: 0;
-    }
-
-    header > * {
-      position: relative;
-      z-index: 1;
-    }
-
-    h1 {
-      font-size: 3rem;
-      margin-bottom: 0.5rem;
-      background: linear-gradient(to right, #fff, #e0e7ff);
-      -webkit-background-clip: text;
-      background-clip: text;
-      color: transparent;
-      animation: fadeInDown 1s ease;
-    }
-
-    .header-subtitle {
-      font-size: 1.25rem;
-      margin-bottom: 1.5rem;
-      font-weight: 300;
-      opacity: 0.9;
-      animation: fadeIn 1.5s ease;
-    }
-
-    @keyframes fadeInDown {
-      from { opacity: 0; transform: translateY(-30px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    @keyframes fadeIn {
-      from { opacity: 0; }
-      to { opacity: 1; }
-    }
-
-    nav {
-      display: flex;
-      justify-content: center;
-      flex-wrap: wrap;
-      gap: 1rem;
-      margin-top: 1.5rem;
-      animation: fadeInUp 1s ease;
-    }
-
-    @keyframes fadeInUp {
-      from { opacity: 0; transform: translateY(20px); }
-      to { opacity: 1; transform: translateY(0); }
-    }
-
-    nav a {
-      color: #fff;
-      text-decoration: none;
-      font-weight: 500;
-      padding: 0.5rem 1rem;
-      border-radius: 50px;
-      transition: all 0.3s ease;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-    }
-
-    nav a:hover {
-      background: rgba(255, 255, 255, 0.15);
-      transform: translateY(-2px);
-    }
-
-    nav a i {
-      font-size: 0.9rem;
-    }
-
-    .container {
-      max-width: 1200px;
-      margin: 3rem auto;
-      padding: 0 1.5rem;
-    }
-
-    section {
-      margin-bottom: 3rem;
-      background: #161b22;
-      padding: 2.5rem;
-      border-radius: 16px;
-      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-      transition: transform 0.3s ease, box-shadow 0.3s ease;
-      position: relative;
-      overflow: hidden;
-    }
-
-    section:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    }
-
-    section::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 4px;
-      height: 100%;
-      background: linear-gradient(to bottom, var(--primary), var(--accent));
-    }
-
-    h2 {
-      margin-bottom: 1.5rem;
-      color: #f0f6fc;
-      font-size: 2rem;
-      position: relative;
-      display: inline-block;
-    }
-
-    h2::after {
-      content: '';
-      position: absolute;
-      bottom: -8px;
-      left: 0;
-      width: 50px;
-      height: 4px;
-      background: var(--accent);
-      border-radius: 2px;
-    }
-
-    p {
-      color: #c9d1d9;
-      margin-bottom: 1.5rem;
-      line-height: 1.8;
-    }
-
-    ul {
-      list-style: none;
-      margin: 1.5rem 0;
-    }
-
-    ul li {
-      padding: 0.75rem 0;
-      position: relative;
-      padding-left: 1.75rem;
-      color: #f0f0f0;
-    }
-
-    ul li::before {
-      content: '';
-      position: absolute;
-      left: 0;
-      top: 1.1rem;
-      width: 12px;
-      height: 12px;
-      border-radius: 50%;
-      background: var(--primary);
-      transform: translateY(-50%);
-    }
-
-    .hero-container {
-      position: relative;
-      border-radius: 12px;
-      overflow: hidden;
-      margin: 2rem 0;
-      height: 400px;
-      box-shadow: 0 20px 25px -5px rgba(0, 0, 0, 0.1), 0 10px 10px -5px rgba(0, 0, 0, 0.04);
-    }
-
-    .hero-image {
-      width: 100%;
-      height: 100%;
-      object-fit: cover;
-      transition: transform 0.5s ease;
-    }
-
-    .hero-container:hover .hero-image {
-      transform: scale(1.03);
-    }
-
-    .hero-overlay {
-      position: absolute;
-      bottom: 0;
-      left: 0;
-      right: 0;
-      background: linear-gradient(to top, rgba(0, 0, 0, 0.8), transparent);
-      padding: 2rem;
-      color: white;
-    }
-
-    .hero-overlay h3 {
-      font-size: 1.5rem;
-      margin-bottom: 0.5rem;
-    }
-
-    .hero-overlay p {
-      color: rgba(255, 255, 255, 0.9);
-      margin-bottom: 0;
-    }
-
-    .cta {
-      display: inline-flex;
-      align-items: center;
-      gap: 0.5rem;
-      background: linear-gradient(to right, var(--primary), var(--primary-dark));
-      color: #fff;
-      padding: 0.875rem 1.75rem;
-      border-radius: 8px;
-      text-decoration: none;
-      transition: all 0.3s ease;
-      font-weight: 600;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1), 0 2px 4px -1px rgba(0, 0, 0, 0.06);
-      border: none;
-      cursor: pointer;
-      margin-top: 1rem;
-    }
-
-    .cta:hover {
-      transform: translateY(-2px);
-      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1), 0 4px 6px -2px rgba(0, 0, 0, 0.05);
-      background: linear-gradient(to right, var(--primary-dark), var(--secondary));
-    }
-
-    .cta i {
-      transition: transform 0.3s ease;
-    }
-
-    .cta:hover i {
-      transform: translateX(3px);
-    }
-
-    footer {
-      text-align: center;
-      padding: 3rem 1rem;
-      background: var(--secondary);
-      color: #fff;
-      margin-top: 4rem;
-      position: relative;
-    }
-
-    footer::before {
-      content: '';
-      position: absolute;
-      top: 0;
-      left: 0;
-      width: 100%;
-      height: 10px;
-      background: linear-gradient(to right, var(--primary), var(--accent));
-    }
-
-    .social-links {
-      display: flex;
-      justify-content: center;
-      gap: 1.5rem;
-      margin: 1.5rem 0;
-    }
-
-    .social-links a {
-      color: #fff;
-      font-size: 1.5rem;
-      transition: all 0.3s ease;
-    }
-
-    .social-links a:hover {
-      color: var(--accent);
-      transform: translateY(-3px);
-    }
-
-    .tech-grid {
-      display: grid;
-      grid-template-columns: repeat(auto-fill, minmax(120px, 1fr));
-      gap: 1.5rem;
-      margin: 2rem 0;
-    }
-
-    .tech-item {
-      background: #161b22;
-      border-radius: 8px;
-      padding: 1.5rem;
-      display: flex;
-      flex-direction: column;
-      align-items: center;
-      justify-content: center;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-      transition: all 0.3s ease;
-    }
-
-    .tech-item:hover {
-      transform: translateY(-5px);
-      box-shadow: 0 10px 15px -3px rgba(0, 0, 0, 0.1);
-    }
-
-    .tech-item i {
-      font-size: 2rem;
-      color: var(--primary);
-      margin-bottom: 0.5rem;
-    }
-
-    .tech-item span {
-      font-weight: 600;
-      color: #f0f6fc;
-      font-size: 0.9rem;
-    }
-
-    .faq-item {
-      margin-bottom: 1.5rem;
-      border-bottom: 1px solid #e2e8f0;
-      padding-bottom: 1.5rem;
-    }
-
-    .faq-question {
-      font-weight: 700;
-      color: #f0f6fc;
-      margin-bottom: 0.5rem;
-      display: flex;
-      align-items: center;
-      gap: 0.5rem;
-      cursor: pointer;
-    }
-
-    .faq-question i {
-      color: var(--accent);
-      transition: transform 0.3s ease;
-    }
-
-    .faq-answer {
-      color: #c9d1d9;
-      padding-left: 1.75rem;
-    }
-
-    .contact-info {
-      display: grid;
-      grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-      gap: 1.5rem;
-      margin-top: 2rem;
-    }
-
-    .contact-card {
-      background: #21262d;
-      padding: 1.5rem;
-      border-radius: 8px;
-      display: flex;
-      align-items: center;
-      gap: 1rem;
-      transition: all 0.3s ease;
-    }
-
-    .contact-card:hover {
-      background: #161b22;
-      box-shadow: 0 4px 6px -1px rgba(0, 0, 0, 0.1);
-    }
-
-    .contact-card i {
-      font-size: 1.5rem;
-      color: var(--primary);
-      background: rgba(37, 99, 235, 0.1);
-      width: 50px;
-      height: 50px;
-      border-radius: 50%;
-      display: flex;
-      align-items: center;
-      justify-content: center;
-    }
-
-    .contact-details h3 {
-      font-size: 1.1rem;
-      margin-bottom: 0.25rem;
-      color: #f0f6fc;
-    }
-
-    .contact-details p {
-      margin: 0;
-      color: #c9d1d9;
-    }
-
-    @media (max-width: 768px) {
-      h1 {
-        font-size: 2.25rem;
-      }
-      
-      .header-subtitle {
-        font-size: 1rem;
-      }
-      
-      section {
-        padding: 1.5rem;
-      }
-      
-      .hero-container {
-        height: 300px;
-      }
-    }
-
-    /* Animations */
-    @keyframes float {
-      0%, 100% { transform: translateY(0); }
-      50% { transform: translateY(-10px); }
-    }
-
-    .floating {
-      animation: float 3s ease-in-out infinite;
-    }
-  
-    section:hover, .tech-item:hover, .contact-card:hover {
-      background-color: #1f2937 !important;
-    }
-
-</style>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Nanomind - Automação Inteligente</title>
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
+    <link rel="stylesheet" href="style.css">
 </head>
 
 <body>
-  <header>
-    <h1 class="floating">Nanomind</h1>
-    <p class="header-subtitle">Soluções inteligentes de automação de processos</p>
-    <nav>
-      <a href="#sobre"><i class="fas fa-info-circle"></i> Sobre</a>
-      <a href="#servicos"><i class="fas fa-cogs"></i> Serviços</a>
-      <a href="#portfolio"><i class="fas fa-briefcase"></i> Portfólio</a>
-      <a href="#contato"><i class="fas fa-envelope"></i> Contato</a>
-      <a href="#faq"><i class="fas fa-question-circle"></i> FAQ</a>
-    </nav>
-  </header>
+    <header class="header-modern">
+        <h1 class="floating">Nanomind</h1>
+        <nav class="nav-modern">
+            <ul>
+                <li><a href="#sobre">Sobre</a></li>
+                <li><a href="#servicos">Serviços</a></li>
+                <li><a href="#portfolio">Portfólio</a></li>
+                <li><a href="#contato">Contato</a></li>
+                <li><a href="#faq">FAQ</a></li>
+            </ul>
+        </nav>
+        <a href="mailto:contato@nanomind.com" class="btn-primary">Solicitar Consultoria</a>
+    </header>
 
-  <div class="container">
-    <section id="sobre">
-      <h2>Sobre Nós</h2>
-      <div class="hero-container">
-        <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Equipe de tecnologia" class="hero-image">
-        <div class="hero-overlay">
-          <h3>Inovação em Automação</h3>
-          <p>Transformando processos complexos em soluções simples</p>
-        </div>
-      </div>
-      <p>A Nanomind é uma empresa especializada em automação e inteligência de processos. Nosso objetivo é impulsionar a transformação digital de empresas, utilizando tecnologias avançadas para otimizar tarefas repetitivas e complexas.</p>
-      
-      <div class="tech-grid">
-        <div class="tech-item">
-          <i class="fab fa-python"></i>
-          <span>Python</span>
-        </div>
-        <div class="tech-item">
-          <i class="fas fa-file-excel"></i>
-          <span>VBA</span>
-        </div>
-        <div class="tech-item">
-          <i class="fas fa-robot"></i>
-          <span>RPA</span>
-        </div>
-        <div class="tech-item">
-          <i class="fas fa-database"></i>
-          <span>Banco de Dados</span>
-        </div>
-        <div class="tech-item">
-          <i class="fas fa-cloud"></i>
-          <span>APIs</span>
-        </div>
-        <div class="tech-item">
-          <i class="fas fa-brain"></i>
-          <span>IA</span>
-        </div>
-      </div>
-    </section>
+    <main class="container-modern">
+        <section id="sobre">
+            <h2 class="section-title">Sobre Nós</h2>
+            <div class="hero-container">
+                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Equipe de tecnologia" class="hero-image">
+                <div class="hero-overlay">
+                    <h3>Inovação em Automação</h3>
+                    <p>Transformando processos complexos em soluções simples</p>
+                </div>
+            </div>
+            <p>A Nanomind é uma empresa especializada em automação e inteligência de processos. Nosso objetivo é impulsionar a transformação digital de empresas, utilizando tecnologias avançadas para otimizar tarefas repetitivas e complexas.</p>
+            
+            <div class="card-grid">
+                <div class="card tech-item">
+                    <i class="fab fa-python icon"></i>
+                    <h3>Python</h3>
+                </div>
+                <div class="card tech-item">
+                    <i class="fas fa-file-excel icon"></i>
+                    <h3>VBA</h3>
+                </div>
+                <div class="card tech-item">
+                    <i class="fas fa-robot icon"></i>
+                    <h3>RPA</h3>
+                </div>
+                <div class="card tech-item">
+                    <i class="fas fa-database icon"></i>
+                    <h3>Banco de Dados</h3>
+                </div>
+                <div class="card tech-item">
+                    <i class="fas fa-cloud icon"></i>
+                    <h3>APIs</h3>
+                </div>
+                <div class="card tech-item">
+                    <i class="fas fa-brain icon"></i>
+                    <h3>IA</h3>
+                </div>
+            </div>
+        </section>
 
-    <section id="servicos">
-      <h2>Serviços</h2>
-      <div class="hero-container">
-        <img src="https://images.unsplash.com/photo-1610563166150-b34df4f3bcd6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Automação" class="hero-image">
-        <div class="hero-overlay">
-          <h3>Automação Inteligente</h3>
-          <p>Reduza custos e aumente a eficiência operacional</p>
-        </div>
-      </div>
-      <ul>
-        <li><strong>Automação de processos</strong> com Python, VBA e RPA (Robotic Process Automation)</li>
-        <li><strong>Integração de sistemas</strong> e APIs para conectar diferentes plataformas</li>
-        <li><strong>Otimização de fluxos de trabalho</strong> para maximizar a produtividade</li>
-        <li><strong>Consultoria em transformação digital</strong> com roadmap personalizado</li>
-        <li><strong>Desenvolvimento de soluções sob medida</strong> para necessidades específicas</li>
-        <li><strong>Implantação de IA</strong> para análise preditiva e tomada de decisão</li>
-      </ul>
-      <a href="#contato" class="cta">Solicitar Consultoria <i class="fas fa-arrow-right"></i></a>
-    </section>
+        <section id="servicos">
+            <h2 class="section-title">Serviços</h2>
+            <div class="hero-container">
+                <img src="https://images.unsplash.com/photo-1610563166150-b34df4f3bcd6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Automação" class="hero-image">
+                <div class="hero-overlay">
+                    <h3>Automação Inteligente</h3>
+                    <p>Reduza custos e aumente a eficiência operacional</p>
+                </div>
+            </div>
+            <ul class="list-modern">
+				<li><i class="fas fa-check-circle"></i><strong>Automação de processos</strong><span class="text-normal">com Python, VBA e RPA (Robotic Process Automation)</span></li>
+				<li><i class="fas fa-check-circle"></i><strong>Integração de sistemas</strong><span class="text-normal">e APIs para conectar diferentes plataformas</span></li>
+				<li><i class="fas fa-check-circle"></i><strong>Otimização de fluxos de trabalho</strong><span class="text-normal">para maximizar a produtividade</span></li>
+				<li><i class="fas fa-check-circle"></i><strong>Consultoria em transformação digital</strong><span class="text-normal">com roadmap personalizado</span></li>
+				<li><i class="fas fa-check-circle"></i><strong>Desenvolvimento de soluções sob medida</strong><span class="text-normal">para necessidades específicas</span></li>
+				<li><i class="fas fa-check-circle"></i><strong>Implantação de IA</strong><span class="text-normal">para análise preditiva e tomada de decisão</span></li>
+			</ul>
+            <a href="mailto:contato@nanomind.com" class="btn-primary">Solicitar Consultoria <i class="fas fa-arrow-right"></i></a>
+        </section>
 
-    <section id="portfolio">
-      <h2>Portfólio</h2>
-      <div class="hero-container">
-        <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Análise de dados" class="hero-image">
-        <div class="hero-overlay">
-          <h3>Cases de Sucesso</h3>
-          <p>Resultados mensuráveis para nossos clientes</p>
-        </div>
-      </div>
-      <p>Confira alguns dos nossos projetos que impactaram positivamente a eficiência operacional de nossos clientes:</p>
-      
-      <ul>
-        <li><strong>Automação de relatórios financeiros:</strong> Redução de 85% no tempo de geração de relatórios mensais para uma empresa do setor financeiro.</li>
-        <li><strong>Integração de sistemas legados:</strong> Conectamos um ERP antigo a um CRM moderno, eliminando trabalho manual para uma indústria de médio porte.</li>
-        <li><strong>Solução de análise de dados:</strong> Dashboard automatizado para acompanhamento de KPIs em tempo real para rede de varejo.</li>
-        <li><strong>Processamento de documentos:</strong> Automação da leitura e classificação de documentos para um escritório de advocacia.</li>
-      </ul>
-    </section>
+        <section id="portfolio">
+            <h2 class="section-title">Portfólio</h2>
+            <div class="hero-container">
+                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Análise de dados" class="hero-image">
+                <div class="hero-overlay">
+                    <h3>Cases de Sucesso</h3>
+                    <p>Resultados mensuráveis para nossos clientes</p>
+                </div>
+            </div>
+            <p>Confira alguns dos nossos projetos que impactaram positivamente a eficiência operacional de nossos clientes:</p>
 
-    <section id="contato">
-      <h2>Contato</h2>
-      <div class="hero-container">
-        <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Contato" class="hero-image">
-        <div class="hero-overlay">
-          <h3>Vamos Conversar</h3>
-          <p>Descubra como podemos ajudar sua empresa</p>
-        </div>
-      </div>
-      <p>Fale conosco e descubra como podemos ajudar sua empresa a evoluir através da automação inteligente.</p>
-      
-      <div class="contact-info">
-        <div class="contact-card">
-          <i class="fas fa-envelope"></i>
-          <div class="contact-details">
-            <h3>E-mail</h3>
-            <p>nanomind@outlook.com.br</p>
-          </div>
-        </div>
-        <div class="contact-card">
-          <i class="fas fa-phone-alt"></i>
-          <div class="contact-details">
-            <h3>Telefone</h3>
-            <p>(11) 94540-3785</p>
-          </div>
-        </div>
-        <div class="contact-card">
-          <i class="fas fa-map-marker-alt"></i>
-          <div class="contact-details">
-            <h3>Escritório</h3>
-            <p>São Paulo - SP, Brasil</p>
-          </div>
-        </div>
-      </div>
-      
-      <a href="mailto:contato@nanomind.com" class="cta">Enviar Mensagem <i class="fas fa-paper-plane"></i></a>
-    </section>
+			<ul class="list-modern">
+				<li><i class="fas fa-check-circle"></i><span class="list-title">Automação de relatórios financeiros:</span><span class="text-normal"> Redução de 85% no tempo de geração de relatórios mensais para uma empresa do setor financeiro.</span></li>
+				<li><i class="fas fa-check-circle"></i><strong>Integração de sistemas legados:</strong><span class="text-normal">Conectamos um ERP antigo a um CRM moderno, eliminando trabalho manual para uma indústria de médio porte.</span></li>
+				<li><i class="fas fa-check-circle"></i><strong>Solução de análise de dados:</strong><span class="text-normal">Dashboard automatizado para acompanhamento de KPIs em tempo real para rede de varejo.</span></li>
+				<li><i class="fas fa-check-circle"></i><strong>Processamento de documentos:</strong><span class="text-normal">Automação da leitura e classificação de documentos para um escritório de advocacia.</span></li>
+			</ul>
+        </section>
 
-    <section id="faq">
-      <h2>Perguntas Frequentes</h2>
-      <div class="hero-container">
-        <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="FAQ" class="hero-image">
-        <div class="hero-overlay">
-          <h3>Tire suas Dúvidas</h3>
-          <p>Encontre respostas para perguntas comuns</p>
+        <section id="contato">
+            <h2 class="section-title">Contato</h2>
+            <div class="hero-container">
+                <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Contato" class="hero-image">
+                <div class="hero-overlay">
+                    <h3>Vamos Conversar</h3>
+                    <p>Descubra como podemos ajudar sua empresa</p>
+                </div>
+            </div>
+            <p>Fale conosco e descubra como podemos ajudar sua empresa a evoluir através da automação inteligente.</p>
+            <div class="contact-grid">
+                <a href="mailto:nanomind@outlook.com.br" class="contact-card">
+                    <i class="fas fa-envelope icon"></i>
+                    <div class="contact-details">
+                        <h3>E-mail</h3>
+                        <p>nanomind@outlook.com.br</p>
+                    </div>
+                </a>
+                <a href="https://api.whatsapp.com/send?phone=5511945403785" class="contact-card">
+                    <i class="fab fa-whatsapp icon"></i>
+                    <div class="contact-details">
+                        <h3>Telefone</h3>
+                        <p>(11) 94540-3785</p>
+                    </div>
+                </a>
+                <a href="#" class="contact-card">
+                    <i class="fas fa-map-marker-alt icon"></i>
+                    <div class="contact-details">
+                        <h3>Escritório</h3>
+                        <p>São Paulo - SP, Brasil</p>
+                    </div>
+                </a>
+            </div>
+            <a href="mailto:contato@nanomind.com" class="btn-primary">Enviar Mensagem <i class="fas fa-paper-plane"></i></a>
+        </section>
+
+        <section id="faq">
+            <h2 class="section-title">Perguntas Frequentes</h2>
+            <div class="hero-container">
+                <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="FAQ" class="hero-image">
+                <div class="hero-overlay">
+                    <h3>Tire suas Dúvidas</h3>
+                    <p>Encontre respostas para perguntas comuns</p>
+                </div>
+            </div>
+            
+            <div class="faq-list">
+                <div class="faq-item">
+                    <h3 class="faq-question">Quais tecnologias vocês utilizam? <i class="fas fa-chevron-down"></i></h3>
+                    <div class="faq-answer">Trabalhamos com Python, VBA, RPA (UiPath, Automation Anywhere), integração com sistemas como SAP, ERPs e desenvolvimento de APIs personalizadas. Também implementamos soluções de IA quando aplicável.</div>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">Como funciona o processo de automação? <i class="fas fa-chevron-down"></i></h3>
+                    <div class="faq-answer">Realizamos uma análise detalhada dos seus processos atuais, identificamos gargalos e oportunidades de melhoria. Em seguida, desenvolvemos uma solução personalizada, testamos em ambiente controlado e implementamos com treinamento para sua equipe.</div>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">Vocês atendem empresas de todos os portes? <i class="fas fa-chevron-down"></i></h3>
+                    <div class="faq-answer">Sim, oferecemos soluções escaláveis desde pequenas startups até grandes corporações. Temos pacotes adaptáveis às necessidades e orçamentos de cada cliente.</div>
+                </div>
+                <div class="faq-item">
+                    <h3 class="faq-question">É possível integrar com sistemas legados? <i class="fas fa-chevron-down"></i></h3>
+                    <div class="faq-answer">Sim, temos vasta experiência em integração com sistemas legados, respeitando a infraestrutura existente enquanto modernizamos os processos ao redor desses sistemas.</div>
+                </div>
+            </div>
+        </section>
+    </main>
+
+    <footer class="footer-modern">
+        <div class="social-links">
+            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
+            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
+            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
+            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
+            <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
         </div>
-      </div>
-      
-      <div class="faq-item">
-        <div class="faq-question"><i class="fas fa-question"></i> Quais tecnologias vocês utilizam?</div>
-        <div class="faq-answer">Trabalhamos com Python, VBA, RPA (UiPath, Automation Anywhere), integração com sistemas como SAP, ERPs e desenvolvimento de APIs personalizadas. Também implementamos soluções de IA quando aplicável.</div>
-      </div>
-      
-      <div class="faq-item">
-        <div class="faq-question"><i class="fas fa-question"></i> Como funciona o processo de automação?</div>
-        <div class="faq-answer">Realizamos uma análise detalhada dos seus processos atuais, identificamos gargalos e oportunidades de melhoria. Em seguida, desenvolvemos uma solução personalizada, testamos em ambiente controlado e implementamos com treinamento para sua equipe.</div>
-      </div>
-      
-      <div class="faq-item">
-        <div class="faq-question"><i class="fas fa-question"></i> Vocês atendem empresas de todos os portes?</div>
-        <div class="faq-answer">Sim, oferecemos soluções escaláveis desde pequenas startups até grandes corporações. Temos pacotes adaptáveis às necessidades e orçamentos de cada cliente.</div>
-      </div>
-      
-      <div class="faq-item">
-        <div class="faq-question"><i class="fas fa-question"></i> É possível integrar com sistemas legados?</div>
-        <div class="faq-answer">Sim, temos vasta experiência em integração com sistemas legados, respeitando a infraestrutura existente enquanto modernizamos os processos ao redor desses sistemas.</div>
-      </div>
-    </section>
-  </div>
+        <p>&copy; 2025 Nanomind - Todos os direitos reservados</p>
+        <p>Transformando processos, impulsionando resultados</p>
+    </footer>
 
-  <footer>
-    <div class="social-links">
-      <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-      <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-      <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-      <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-      <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
-    </div>
-    <p>&copy; 2025 Nanomind - Todos os direitos reservados</p>
-    <p>Transformando processos, impulsionando resultados</p>
-  </footer>
-
-  <script>
-    // Simple animation for FAQ questions
-    document.querySelectorAll('.faq-question').forEach(question => {
-      question.addEventListener('click', () => {
-        const answer = question.nextElementSibling;
-        const icon = question.querySelector('i');
-        
-        if (answer.style.maxHeight) {
-          answer.style.maxHeight = null;
-          icon.style.transform = 'rotate(0deg)';
-        } else {
-          answer.style.maxHeight = answer.scrollHeight + 'px';
-          icon.style.transform = 'rotate(180deg)';
-        }
-      });
-    });
-  </script>
+    <script>
+        document.querySelectorAll('.faq-question').forEach(question => {
+            question.addEventListener('click', () => {
+                const answer = question.nextElementSibling;
+                const icon = question.querySelector('i');
+                
+                if (answer.classList.contains('active')) {
+                    answer.classList.remove('active');
+                    icon.style.transform = 'rotate(0deg)';
+                } else {
+                    document.querySelectorAll('.faq-answer.active').forEach(item => {
+                        item.classList.remove('active');
+                        item.previousElementSibling.querySelector('i').style.transform = 'rotate(0deg)';
+                    });
+                    answer.classList.add('active');
+                    icon.style.transform = 'rotate(180deg)';
+                }
+            });
+        });
+    </script>
 </body>
-
 </html>
