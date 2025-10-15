@@ -59,9 +59,8 @@ body {
   bottom: 0;
   left: 0;
   width: 100%;
-  height: 4px;
+  height: 8px;
   background: linear-gradient(to right, var(--primary), var(--accent));
-  
   z-index: 99;
 }
 
@@ -159,7 +158,7 @@ section::before {
     position: absolute;
     top: 0;
     left: 0;
-    width: 4px;
+    width: 8px;
     height: 100%;
     background: linear-gradient(to bottom, var(--primary), var(--accent));
     border-top-left-radius: 16px;
@@ -169,7 +168,7 @@ section::before {
 section::after {
   content: '';
   position: absolute;
-  left: 4px;
+  left: 8px;
   bottom: -1px; /* Ajuste para sobrepor a borda */
   width: 15px; 
   height: 16px; 
@@ -317,9 +316,7 @@ section::after {
 }
 
 .list-modern li strong {
-	/* Adiciona um pequeno espaço à direita do texto em negrito */
-  flex-shrink: 0;
-  white-space: nowrap;
+  margin-right: 5px;
 }
 
 .list-modern li:hover {
@@ -331,16 +328,6 @@ section::after {
 .list-modern i {
   color: var(--primary);
   transition: color 0.3s ease;
-}
-
-.list-title {
-  font-weight: bold;
-  white-space: nowrap; /* Impede a quebra de linha no título */
-}
-
-.text-normal {
-    font-weight: normal;
-    margin-left: -10px;
 }
 
 /* --- Contato --- */
@@ -509,5 +496,35 @@ section::after {
 
   .section-title {
     font-size: 28px;
+  }
+}
+
+@media (max-width: 480px) {
+  .header-modern {
+    padding: 15px;
+  }
+  .nav-modern {
+    margin: 0;
+    width: 100%;
+  }
+  .nav-modern ul {
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+  .btn-primary {
+    width: 100%;
+    text-align: center;
+  }
+  .section-title {
+    font-size: 24px;
+    text-align: center;
+  }
+  .section-title::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+  .list-modern li {
+    flex-direction: column;
+    align-items: flex-start;
   }
 }
