@@ -481,21 +481,38 @@ section::after {
 @media (max-width: 768px) {
   .header-modern {
     flex-direction: column;
-    gap: 20px;
-    padding: 20px;
+    gap: 10px; /* Reduzi o espaçamento entre os itens */
+    padding: 15px; /* Reduzi o padding do cabeçalho */
   }
 
   .nav-modern ul {
-    flex-direction: column;
-    gap: 15px;
+    flex-direction: row; /* Mantém os itens de navegação em linha */
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px; /* Reduzi o espaço entre os links */
   }
 
   .nav-modern a {
-    font-size: 18px;
+    font-size: 14px; /* Reduzi o tamanho da fonte para caber mais links */
+  }
+
+  .btn-primary {
+    width: auto;
+    font-size: 14px; /* Reduzi o tamanho da fonte do botão */
   }
 
   .section-title {
-    font-size: 28px;
+    font-size: 24px;
+    text-align: center;
+  }
+  
+  .section-title::after {
+    left: 50%;
+    transform: translateX(-50%);
+  }
+
+  .contact-grid {
+    grid-template-columns: 1fr;
   }
 }
 
