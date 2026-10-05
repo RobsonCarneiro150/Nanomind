@@ -1,206 +1,518 @@
 <!DOCTYPE html>
 <html lang="pt-BR">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Nanomind - Automação Inteligente</title>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
-    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+
+  <!-- SEO -->
+  <title>Nanomind | Automação de processos com Python, RPA e IA</title>
+  <meta name="description" content="Automatize tarefas manuais e escale sua operação. A Nanomind cria automações com Python, RPA, VBA, APIs e IA para reduzir retrabalho e custos.">
+  <meta name="robots" content="index, follow, max-image-preview:large">
+  <meta name="author" content="Nanomind">
+  <link rel="canonical" href="https://nanomind.com.br/">
+
+  <!-- Aparência do navegador -->
+  <meta name="theme-color" content="#060a13">
+  <meta name="color-scheme" content="dark">
+  <link rel="icon" href="assets/favicon.svg" type="image/svg+xml">
+  <link rel="icon" href="assets/favicon-32.png" sizes="32x32" type="image/png">
+  <link rel="apple-touch-icon" href="assets/apple-touch-icon.png">
+
+  <!-- Open Graph (WhatsApp, LinkedIn, Facebook) -->
+  <!-- Atenção: og:image e og:url precisam ser URLs absolutas, senão o preview não aparece -->
+  <meta property="og:type" content="website">
+  <meta property="og:site_name" content="Nanomind">
+  <meta property="og:locale" content="pt_BR">
+  <meta property="og:url" content="https://nanomind.com.br/">
+  <meta property="og:title" content="Nanomind | Automatize tarefas manuais e escale sua operação">
+  <meta property="og:description" content="Automações com Python, RPA, VBA, APIs e IA para reduzir retrabalho, erros e custos operacionais.">
+  <meta property="og:image" content="https://nanomind.com.br/assets/og-image.png">
+  <meta property="og:image:type" content="image/png">
+  <meta property="og:image:width" content="1200">
+  <meta property="og:image:height" content="630">
+  <meta property="og:image:alt" content="Nanomind: automação de processos com Python, RPA e IA">
+
+  <!-- Twitter / X -->
+  <meta name="twitter:card" content="summary_large_image">
+  <meta name="twitter:title" content="Nanomind | Automatize tarefas manuais e escale sua operação">
+  <meta name="twitter:description" content="Automações com Python, RPA, VBA, APIs e IA para reduzir retrabalho, erros e custos operacionais.">
+  <meta name="twitter:image" content="https://nanomind.com.br/assets/og-image.png">
+
+  <!-- Fontes -->
+  <link rel="preconnect" href="https://fonts.googleapis.com">
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&display=swap" rel="stylesheet">
+
+  <link rel="stylesheet" href="style.css">
+  <script defer src="script.js"></script>
+
+  <!-- Dados estruturados (Google) -->
+  <script type="application/ld+json">
+  {
+    "@context": "https://schema.org",
+    "@graph": [
+      {
+        "@type": "Organization",
+        "@id": "https://nanomind.com.br/#organization",
+        "name": "Nanomind",
+        "url": "https://nanomind.com.br/",
+        "logo": "https://nanomind.com.br/assets/apple-touch-icon.png",
+        "description": "Empresa de automação e inteligência de processos: Python, RPA, VBA, APIs, bancos de dados e IA.",
+        "email": "nanomind@outlook.com.br",
+        "telephone": "+55 11 94540-3785",
+        "address": {
+          "@type": "PostalAddress",
+          "addressLocality": "São Paulo",
+          "addressRegion": "SP",
+          "addressCountry": "BR"
+        }
+      },
+      {
+        "@type": "FAQPage",
+        "mainEntity": [
+          {
+            "@type": "Question",
+            "name": "Quais tecnologias vocês utilizam?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Trabalhamos com Python, VBA, RPA (UiPath, Automation Anywhere), integração com sistemas como SAP, ERPs e desenvolvimento de APIs personalizadas. Também implementamos soluções de IA quando aplicável." }
+          },
+          {
+            "@type": "Question",
+            "name": "Como funciona o processo de automação?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Realizamos uma análise detalhada dos seus processos atuais, identificamos gargalos e oportunidades de melhoria. Em seguida, desenvolvemos uma solução personalizada, testamos em ambiente controlado e implementamos com treinamento para sua equipe." }
+          },
+          {
+            "@type": "Question",
+            "name": "Vocês atendem empresas de todos os portes?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Sim, oferecemos soluções escaláveis desde pequenas startups até grandes corporações. Temos pacotes adaptáveis às necessidades e orçamentos de cada cliente." }
+          },
+          {
+            "@type": "Question",
+            "name": "É possível integrar com sistemas legados?",
+            "acceptedAnswer": { "@type": "Answer", "text": "Sim, temos vasta experiência em integração com sistemas legados, respeitando a infraestrutura existente enquanto modernizamos os processos ao redor desses sistemas." }
+          }
+        ]
+      }
+    ]
+  }
+  </script>
 </head>
 
 <body>
-    <header class="header-modern">
-        <h1 class="floating">Nanomind</h1>
-        <nav class="nav-modern">
-            <ul>
-                <li><a href="#sobre">Sobre</a></li>
-                <li><a href="#servicos">Serviços</a></li>
-                <li><a href="#portfolio">Portfólio</a></li>
-                <li><a href="#contato">Contato</a></li>
-                <li><a href="#faq">FAQ</a></li>
-            </ul>
-        </nav>
-        <a href="mailto:contato@nanomind.com" class="btn-primary">Solicitar Consultoria</a>
-    </header>
+  <a class="skip-link" href="#conteudo">Ir para o conteúdo</a>
 
-    <main class="container-modern">
-        <section id="sobre">
-            <h2 class="section-title">Sobre Nós</h2>
-            <div class="hero-container">
-                <img src="https://images.unsplash.com/photo-1552664730-d307ca884978?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Equipe de tecnologia" class="hero-image">
-                <div class="hero-overlay">
-                    <h3>Inovação em Automação</h3>
-                    <p>Transformando processos complexos em soluções simples</p>
-                </div>
-            </div>
-            <p>A Nanomind é uma empresa especializada em automação e inteligência de processos. Nosso objetivo é impulsionar a transformação digital de empresas, utilizando tecnologias avançadas para otimizar tarefas repetitivas e complexas.</p>
-            
-            <div class="card-grid">
-                <div class="card tech-item">
-                    <i class="fab fa-python icon"></i>
-                    <h3>Python</h3>
-                </div>
-                <div class="card tech-item">
-                    <i class="fas fa-file-excel icon"></i>
-                    <h3>VBA</h3>
-                </div>
-                <div class="card tech-item">
-                    <i class="fas fa-robot icon"></i>
-                    <h3>RPA</h3>
-                </div>
-                <div class="card tech-item">
-                    <i class="fas fa-database icon"></i>
-                    <h3>Banco de Dados</h3>
-                </div>
-                <div class="card tech-item">
-                    <i class="fas fa-cloud icon"></i>
-                    <h3>APIs</h3>
-                </div>
-                <div class="card tech-item">
-                    <i class="fas fa-brain icon"></i>
-                    <h3>IA</h3>
-                </div>
-            </div>
-        </section>
+  <!-- Ícones (sprite SVG inline: sem dependência externa) -->
+  <svg xmlns="http://www.w3.org/2000/svg" width="0" height="0" style="position:absolute" aria-hidden="true" focusable="false">
+    <defs>
+      <symbol id="i-code" viewBox="0 0 24 24"><path d="M16 18l6-6-6-6M8 6l-6 6 6 6"/></symbol>
+      <symbol id="i-bot" viewBox="0 0 24 24"><rect x="4" y="8" width="16" height="12" rx="3"/><path d="M12 8V5"/><circle cx="12" cy="3.5" r="1.2"/><path d="M2 13v3M22 13v3"/><circle cx="9" cy="14" r=".6"/><circle cx="15" cy="14" r=".6"/></symbol>
+      <symbol id="i-sheet" viewBox="0 0 24 24"><rect x="3" y="3" width="18" height="18" rx="2.5"/><path d="M3 9h18M3 15h18M9 3v18"/></symbol>
+      <symbol id="i-plug" viewBox="0 0 24 24"><path d="M9 2v5M15 2v5"/><path d="M6 7h12v4a6 6 0 0 1-12 0z"/><path d="M12 17v5"/></symbol>
+      <symbol id="i-db" viewBox="0 0 24 24"><ellipse cx="12" cy="5" rx="8" ry="3"/><path d="M4 5v14c0 1.7 3.6 3 8 3s8-1.3 8-3V5"/><path d="M4 12c0 1.7 3.6 3 8 3s8-1.3 8-3"/></symbol>
+      <symbol id="i-spark" viewBox="0 0 24 24"><path d="M11 3l1.9 5.1L18 10l-5.1 1.9L11 17l-1.9-5.1L4 10l5.1-1.9z"/><path d="M19 15v5M16.5 17.5h5"/></symbol>
+      <symbol id="i-gauge" viewBox="0 0 24 24"><path d="M3.3 17a9 9 0 1 1 17.4 0"/><path d="M12 14l4-4"/><circle cx="12" cy="14" r="1"/></symbol>
+      <symbol id="i-compass" viewBox="0 0 24 24"><circle cx="12" cy="12" r="9"/><path d="M15.5 8.5l-2 5-5 2 2-5z"/></symbol>
+      <symbol id="i-wrench" viewBox="0 0 24 24"><path d="M14.7 6.3a1 1 0 0 0 0 1.4l1.6 1.6a1 1 0 0 0 1.4 0l3.77-3.77a6 6 0 0 1-7.94 7.94l-6.91 6.91a2.12 2.12 0 0 1-3-3l6.91-6.91a6 6 0 0 1 7.94-7.94l-3.76 3.76z"/></symbol>
+      <symbol id="i-network" viewBox="0 0 24 24"><circle cx="6" cy="12" r="2.5"/><circle cx="18" cy="6" r="2.5"/><circle cx="18" cy="18" r="2.5"/><path d="M8.3 11l7.4-3.7M8.3 13l7.4 3.7"/></symbol>
+      <symbol id="i-arrow" viewBox="0 0 24 24"><path d="M5 12h14M13 6l6 6-6 6"/></symbol>
+      <symbol id="i-check" viewBox="0 0 24 24"><path d="M5 12.5l4.5 4.5L19 7.5"/></symbol>
+      <symbol id="i-chat" viewBox="0 0 24 24"><path d="M21 11.5a8.5 8.5 0 0 1-12.6 7.4L3 20l1.2-4.9A8.5 8.5 0 1 1 21 11.5z"/></symbol>
+      <symbol id="i-mail" viewBox="0 0 24 24"><rect x="3" y="5" width="18" height="14" rx="2.5"/><path d="M3 7.5l9 6 9-6"/></symbol>
+      <symbol id="i-pin" viewBox="0 0 24 24"><path d="M12 21s7-6.2 7-11.5a7 7 0 1 0-14 0C5 14.8 12 21 12 21z"/><circle cx="12" cy="9.5" r="2.5"/></symbol>
+      <symbol id="i-logo" viewBox="0 0 32 32"><path d="M9 23V9l14 14V9"/></symbol>
+    </defs>
+  </svg>
 
-        <section id="servicos">
-            <h2 class="section-title">Serviços</h2>
-            <div class="hero-container">
-                <img src="https://images.unsplash.com/photo-1610563166150-b34df4f3bcd6?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Automação" class="hero-image">
-                <div class="hero-overlay">
-                    <h3>Automação Inteligente</h3>
-                    <p>Reduza custos e aumente a eficiência operacional</p>
-                </div>
-            </div>
-            <ul class="list-modern">
-				<li><i class="fas fa-check-circle"></i><strong>Automação de processos</strong><span class="text-normal">com Python, VBA e RPA (Robotic Process Automation)</span></li>
-				<li><i class="fas fa-check-circle"></i><strong>Integração de sistemas</strong><span class="text-normal">e APIs para conectar diferentes plataformas</span></li>
-				<li><i class="fas fa-check-circle"></i><strong>Otimização de fluxos de trabalho</strong><span class="text-normal">para maximizar a produtividade</span></li>
-				<li><i class="fas fa-check-circle"></i><strong>Consultoria em transformação digital</strong><span class="text-normal">com roadmap personalizado</span></li>
-				<li><i class="fas fa-check-circle"></i><strong>Desenvolvimento de soluções sob medida</strong><span class="text-normal">para necessidades específicas</span></li>
-				<li><i class="fas fa-check-circle"></i><strong>Implantação de IA</strong><span class="text-normal">para análise preditiva e tomada de decisão</span></li>
-			</ul>
-            <a href="mailto:contato@nanomind.com" class="btn-primary">Solicitar Consultoria <i class="fas fa-arrow-right"></i></a>
-        </section>
+  <!-- ============ CABEÇALHO ============ -->
+  <header class="site-header">
+    <div class="container site-header__inner">
+      <a class="brand" href="#topo" aria-label="Nanomind, ir para o início">
+        <span class="brand__mark" aria-hidden="true">
+          <svg class="icon icon--logo"><use href="#i-logo"/></svg>
+        </span>
+        <span class="brand__name">Nanomind</span>
+      </a>
 
-        <section id="portfolio">
-            <h2 class="section-title">Portfólio</h2>
-            <div class="hero-container">
-                <img src="https://images.unsplash.com/photo-1551288049-bebda4e38f71?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Análise de dados" class="hero-image">
-                <div class="hero-overlay">
-                    <h3>Cases de Sucesso</h3>
-                    <p>Resultados mensuráveis para nossos clientes</p>
-                </div>
-            </div>
-            <p>Confira alguns dos nossos projetos que impactaram positivamente a eficiência operacional de nossos clientes:</p>
+      <button class="nav-toggle" type="button" aria-expanded="false" aria-controls="site-nav" aria-label="Abrir menu">
+        <span class="nav-toggle__bar" aria-hidden="true"></span>
+      </button>
 
-			<ul class="list-modern">
-				<li><i class="fas fa-check-circle"></i><strong>Automação de relatórios financeiros: Redução de 85% no tempo de geração de relatórios mensais para uma empresa do setor financeiro.</strong></li>
-				<li><i class="fas fa-check-circle"></i><strong>Integração de sistemas legados: Conectamos um ERP antigo a um CRM moderno, eliminando trabalho manual para uma indústria de médio porte.</strong></li>
-				<li><i class="fas fa-check-circle"></i><strong>Solução de análise de dados: Dashboard automatizado para acompanhamento de KPIs em tempo real para rede de varejo.</strong></li>
-				<li><i class="fas fa-check-circle"></i><strong>Processamento de documentos: Automação da leitura e classificação de documentos para um escritório de advocacia.</strong></li>
-			</ul>
-        </section>
+      <nav class="nav" id="site-nav" aria-label="Principal">
+        <ul class="nav__list">
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#portfolio">Portfólio</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li class="nav__cta"><a class="btn btn--primary btn--sm" href="#contato">Solicitar consultoria</a></li>
+        </ul>
+      </nav>
+    </div>
+  </header>
 
-        <section id="contato">
-            <h2 class="section-title">Contato</h2>
-            <div class="hero-container">
-                <img src="https://images.unsplash.com/photo-1521791136064-7986c2920216?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="Contato" class="hero-image">
-                <div class="hero-overlay">
-                    <h3>Vamos Conversar</h3>
-                    <p>Descubra como podemos ajudar sua empresa</p>
-                </div>
-            </div>
-            <p>Fale conosco e descubra como podemos ajudar sua empresa a evoluir através da automação inteligente.</p>
-            <div class="contact-grid">
-                <a href="mailto:nanomind@outlook.com.br" class="contact-card">
-                    <i class="fas fa-envelope icon"></i>
-                    <div class="contact-details">
-                        <h3>E-mail</h3>
-                        <p>nanomind@outlook.com.br</p>
-                    </div>
-                </a>
-                <a href="https://api.whatsapp.com/send?phone=5511945403785" class="contact-card">
-                    <i class="fab fa-whatsapp icon"></i>
-                    <div class="contact-details">
-                        <h3>Telefone</h3>
-                        <p>(11) 94540-3785</p>
-                    </div>
-                </a>
-                <a href="#" class="contact-card">
-                    <i class="fas fa-map-marker-alt icon"></i>
-                    <div class="contact-details">
-                        <h3>Escritório</h3>
-                        <p>São Paulo - SP, Brasil</p>
-                    </div>
-                </a>
-            </div>
-            <a href="mailto:contato@nanomind.com" class="btn-primary">Enviar Mensagem <i class="fas fa-paper-plane"></i></a>
-        </section>
+  <main id="conteudo">
 
-        <section id="faq">
-            <h2 class="section-title">Perguntas Frequentes</h2>
-            <div class="hero-container">
-                <img src="https://images.unsplash.com/photo-1434030216411-0b793f4b4173?ixlib=rb-4.0.3&ixid=M3wxMjA3fDB8MHxwaG90by1wYWdlfHx8fGVufDB8fHx8fA%3D%3D&auto=format&fit=crop&w=1200&q=80" alt="FAQ" class="hero-image">
-                <div class="hero-overlay">
-                    <h3>Tire suas Dúvidas</h3>
-                    <p>Encontre respostas para perguntas comuns</p>
-                </div>
-            </div>
-            
-            <div class="faq-list">
-                <div class="faq-item">
-                    <h3 class="faq-question">Quais tecnologias vocês utilizam? <i class="fas fa-chevron-down"></i></h3>
-                    <div class="faq-answer">Trabalhamos com Python, VBA, RPA (UiPath, Automation Anywhere), integração com sistemas como SAP, ERPs e desenvolvimento de APIs personalizadas. Também implementamos soluções de IA quando aplicável.</div>
-                </div>
-                <div class="faq-item">
-                    <h3 class="faq-question">Como funciona o processo de automação? <i class="fas fa-chevron-down"></i></h3>
-                    <div class="faq-answer">Realizamos uma análise detalhada dos seus processos atuais, identificamos gargalos e oportunidades de melhoria. Em seguida, desenvolvemos uma solução personalizada, testamos em ambiente controlado e implementamos com treinamento para sua equipe.</div>
-                </div>
-                <div class="faq-item">
-                    <h3 class="faq-question">Vocês atendem empresas de todos os portes? <i class="fas fa-chevron-down"></i></h3>
-                    <div class="faq-answer">Sim, oferecemos soluções escaláveis desde pequenas startups até grandes corporações. Temos pacotes adaptáveis às necessidades e orçamentos de cada cliente.</div>
-                </div>
-                <div class="faq-item">
-                    <h3 class="faq-question">É possível integrar com sistemas legados? <i class="fas fa-chevron-down"></i></h3>
-                    <div class="faq-answer">Sim, temos vasta experiência em integração com sistemas legados, respeitando a infraestrutura existente enquanto modernizamos os processos ao redor desses sistemas.</div>
-                </div>
-            </div>
-        </section>
-    </main>
+    <!-- ============ HERO ============ -->
+    <section class="hero" id="topo">
+      <div class="container hero__grid">
+        <div class="hero__copy">
+          <h1>Automatize tarefas manuais e escale sua operação</h1>
+          <p class="hero__sub">
+            A Nanomind cria robôs e integrações com Python, RPA e IA que assumem o trabalho repetitivo da sua equipe.
+            Menos retrabalho, menos erros e mais tempo para o que gera receita.
+          </p>
 
-    <footer class="footer-modern">
-        <div class="social-links">
-            <a href="#" aria-label="Facebook"><i class="fab fa-facebook-f"></i></a>
-            <a href="#" aria-label="LinkedIn"><i class="fab fa-linkedin-in"></i></a>
-            <a href="#" aria-label="Instagram"><i class="fab fa-instagram"></i></a>
-            <a href="#" aria-label="Twitter"><i class="fab fa-twitter"></i></a>
-            <a href="#" aria-label="GitHub"><i class="fab fa-github"></i></a>
+          <div class="hero__actions">
+            <a class="btn btn--primary" href="#contato">
+              Solicitar consultoria
+              <svg class="icon icon--arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
+            </a>
+            <a class="btn btn--ghost" target="_blank" rel="noopener"
+               href="https://api.whatsapp.com/send?phone=5511945403785&text=Ol%C3%A1%2C%20Nanomind!%20Gostaria%20de%20saber%20como%20automatizar%20processos%20na%20minha%20empresa.">
+              <svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg>
+              Falar no WhatsApp
+            </a>
+          </div>
+
+          <ul class="badges" aria-label="Diferenciais">
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Python, RPA e VBA</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Integração com SAP e ERPs</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>De startups a grandes empresas</li>
+            <li><svg class="icon" aria-hidden="true"><use href="#i-check"/></svg>Soluções sob medida</li>
+          </ul>
         </div>
-        <p>&copy; 2025 Nanomind - Todos os direitos reservados</p>
-        <p>Transformando processos, impulsionando resultados</p>
-    </footer>
 
-    <script>
-        document.querySelectorAll('.faq-question').forEach(question => {
-            question.addEventListener('click', () => {
-                const answer = question.nextElementSibling;
-                const icon = question.querySelector('i');
-                
-                if (answer.classList.contains('active')) {
-                    answer.classList.remove('active');
-                    icon.style.transform = 'rotate(0deg)';
-                } else {
-                    document.querySelectorAll('.faq-answer.active').forEach(item => {
-                        item.classList.remove('active');
-                        item.previousElementSibling.querySelector('i').style.transform = 'rotate(0deg)';
-                    });
-                    answer.classList.add('active');
-                    icon.style.transform = 'rotate(180deg)';
-                }
-            });
-        });
-    </script>
+        <figure class="hero__visual">
+          <div class="runlog glass" role="img"
+               aria-label="Ilustração de um fluxo automatizado: o robô lê as planilhas e o ERP, concilia os lançamentos, valida as regras de negócio e gera e envia o relatório, sem intervenção manual.">
+            <div class="runlog__bar" aria-hidden="true">
+              <span class="runlog__dots"><i></i><i></i><i></i></span>
+              <span class="runlog__name">fluxo_relatorio_mensal</span>
+              <span class="runlog__state">
+                <span class="runlog__state-run">executando</span>
+                <span class="runlog__state-done">concluído</span>
+              </span>
+            </div>
+            <ol class="runlog__steps" aria-hidden="true">
+              <li style="--i:0"><span class="tick"><svg class="icon"><use href="#i-check"/></svg></span>Lê as planilhas e o ERP</li>
+              <li style="--i:1"><span class="tick"><svg class="icon"><use href="#i-check"/></svg></span>Concilia os lançamentos</li>
+              <li style="--i:2"><span class="tick"><svg class="icon"><use href="#i-check"/></svg></span>Valida as regras de negócio</li>
+              <li style="--i:3"><span class="tick"><svg class="icon"><use href="#i-check"/></svg></span>Gera e envia o relatório</li>
+            </ol>
+            <div class="runlog__foot" aria-hidden="true">
+              <div class="progress"><span></span></div>
+              <p class="runlog__result">Concluído sem intervenção manual</p>
+            </div>
+          </div>
+          <figcaption>Fluxo ilustrativo de uma automação de relatórios.</figcaption>
+        </figure>
+      </div>
+    </section>
+
+    <!-- ============ SOBRE + STACKS ============ -->
+    <section class="section" id="sobre">
+      <div class="container">
+        <div class="section-head">
+          <h2>Automação que transforma processos complexos em rotinas simples</h2>
+          <p class="lead">
+            A Nanomind é uma empresa especializada em automação e inteligência de processos.
+            Nosso objetivo é impulsionar a transformação digital de empresas, utilizando tecnologias avançadas
+            para otimizar tarefas repetitivas e complexas.
+          </p>
+        </div>
+
+        <h3 class="sr-only">Tecnologias</h3>
+        <ul class="stack-grid">
+          <li class="stack">
+            <span class="stack__icon"><svg class="icon" aria-hidden="true"><use href="#i-code"/></svg></span>
+            <h4>Python</h4>
+            <p>Scripts, robôs e análise de dados.</p>
+          </li>
+          <li class="stack">
+            <span class="stack__icon"><svg class="icon" aria-hidden="true"><use href="#i-bot"/></svg></span>
+            <h4>RPA</h4>
+            <p>Robôs que operam sistemas como um usuário.</p>
+          </li>
+          <li class="stack">
+            <span class="stack__icon"><svg class="icon" aria-hidden="true"><use href="#i-sheet"/></svg></span>
+            <h4>VBA</h4>
+            <p>Excel e Office no piloto automático.</p>
+          </li>
+          <li class="stack">
+            <span class="stack__icon"><svg class="icon" aria-hidden="true"><use href="#i-plug"/></svg></span>
+            <h4>APIs</h4>
+            <p>Conexão entre plataformas e sistemas.</p>
+          </li>
+          <li class="stack">
+            <span class="stack__icon"><svg class="icon" aria-hidden="true"><use href="#i-db"/></svg></span>
+            <h4>Bancos de dados</h4>
+            <p>Consolidação e consulta de dados.</p>
+          </li>
+          <li class="stack">
+            <span class="stack__icon"><svg class="icon" aria-hidden="true"><use href="#i-spark"/></svg></span>
+            <h4>IA</h4>
+            <p>Análise preditiva e apoio à decisão.</p>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ SERVIÇOS ============ -->
+    <section class="section section--alt" id="servicos">
+      <div class="container services">
+        <div class="services__intro">
+          <div class="section-head">
+            <h2>Reduza custos e aumente a eficiência operacional</h2>
+            <p class="lead">Do mapeamento do processo até a automação rodando, com acompanhamento da sua equipe.</p>
+          </div>
+          <a class="btn btn--primary" href="#contato">
+            Solicitar consultoria
+            <svg class="icon icon--arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
+          </a>
+        </div>
+
+        <ul class="services__list">
+          <li class="service">
+            <span class="service__icon"><svg class="icon" aria-hidden="true"><use href="#i-bot"/></svg></span>
+            <div>
+              <h3>Automação de processos</h3>
+              <p>Com Python, VBA e RPA (Robotic Process Automation).</p>
+            </div>
+          </li>
+          <li class="service">
+            <span class="service__icon"><svg class="icon" aria-hidden="true"><use href="#i-network"/></svg></span>
+            <div>
+              <h3>Integração de sistemas</h3>
+              <p>E APIs para conectar diferentes plataformas.</p>
+            </div>
+          </li>
+          <li class="service">
+            <span class="service__icon"><svg class="icon" aria-hidden="true"><use href="#i-gauge"/></svg></span>
+            <div>
+              <h3>Otimização de fluxos de trabalho</h3>
+              <p>Para maximizar a produtividade.</p>
+            </div>
+          </li>
+          <li class="service">
+            <span class="service__icon"><svg class="icon" aria-hidden="true"><use href="#i-compass"/></svg></span>
+            <div>
+              <h3>Consultoria em transformação digital</h3>
+              <p>Com roadmap personalizado.</p>
+            </div>
+          </li>
+          <li class="service">
+            <span class="service__icon"><svg class="icon" aria-hidden="true"><use href="#i-wrench"/></svg></span>
+            <div>
+              <h3>Desenvolvimento de soluções sob medida</h3>
+              <p>Para necessidades específicas.</p>
+            </div>
+          </li>
+          <li class="service">
+            <span class="service__icon"><svg class="icon" aria-hidden="true"><use href="#i-spark"/></svg></span>
+            <div>
+              <h3>Implantação de IA</h3>
+              <p>Para análise preditiva e tomada de decisão.</p>
+            </div>
+          </li>
+        </ul>
+      </div>
+    </section>
+
+    <!-- ============ PORTFÓLIO / CASES ============ -->
+    <section class="section" id="portfolio">
+      <div class="container">
+        <div class="section-head">
+          <h2>Resultados mensuráveis para nossos clientes</h2>
+          <p class="lead">Alguns projetos que impactaram a eficiência operacional de quem confiou na Nanomind.</p>
+        </div>
+
+        <div class="cases">
+          <article class="case case--wide">
+            <p class="case__sector">Financeiro</p>
+            <p class="case__metric"><span data-count="85" data-prefix="−" data-suffix="%">−85%</span></p>
+            <p class="case__metric-label">no tempo de geração dos relatórios mensais</p>
+            <h3>Automação de relatórios financeiros</h3>
+            <p>Relatórios mensais de uma empresa do setor financeiro passaram a ser gerados de forma automática.</p>
+          </article>
+
+          <article class="case">
+            <p class="case__sector">Indústria</p>
+            <p class="case__metric case__metric--text">Zero</p>
+            <p class="case__metric-label">retrabalho manual</p>
+            <h3>Integração de sistemas legados</h3>
+            <p>Conectamos um ERP antigo a um CRM moderno, eliminando o trabalho manual em uma indústria de médio porte.</p>
+          </article>
+
+          <article class="case">
+            <p class="case__sector">Varejo</p>
+            <p class="case__metric case__metric--text">Tempo real</p>
+            <p class="case__metric-label">no acompanhamento de KPIs</p>
+            <h3>Solução de análise de dados</h3>
+            <p>Dashboard automatizado para acompanhar os indicadores de uma rede de varejo.</p>
+          </article>
+
+          <article class="case case--wide">
+            <p class="case__sector">Jurídico</p>
+            <p class="case__metric case__metric--text">Leitura automática</p>
+            <p class="case__metric-label">e classificação de documentos</p>
+            <h3>Processamento de documentos</h3>
+            <p>Automação da leitura e da classificação de documentos para um escritório de advocacia.</p>
+          </article>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ FAQ ============ -->
+    <section class="section section--alt" id="faq">
+      <div class="container">
+        <div class="section-head section-head--center">
+          <h2>Perguntas frequentes</h2>
+          <p class="lead">Respostas rápidas para as dúvidas mais comuns antes de começar.</p>
+        </div>
+
+        <!-- O atributo name faz o navegador fechar os outros itens ao abrir um (sem JS) -->
+        <div class="faq">
+          <details name="faq">
+            <summary>Quais tecnologias vocês utilizam?</summary>
+            <div class="faq__answer">
+              <p>Trabalhamos com Python, VBA, RPA (UiPath, Automation Anywhere), integração com sistemas como SAP, ERPs e desenvolvimento de APIs personalizadas. Também implementamos soluções de IA quando aplicável.</p>
+            </div>
+          </details>
+          <details name="faq">
+            <summary>Como funciona o processo de automação?</summary>
+            <div class="faq__answer">
+              <p>Realizamos uma análise detalhada dos seus processos atuais, identificamos gargalos e oportunidades de melhoria. Em seguida, desenvolvemos uma solução personalizada, testamos em ambiente controlado e implementamos com treinamento para sua equipe.</p>
+            </div>
+          </details>
+          <details name="faq">
+            <summary>Vocês atendem empresas de todos os portes?</summary>
+            <div class="faq__answer">
+              <p>Sim, oferecemos soluções escaláveis desde pequenas startups até grandes corporações. Temos pacotes adaptáveis às necessidades e orçamentos de cada cliente.</p>
+            </div>
+          </details>
+          <details name="faq">
+            <summary>É possível integrar com sistemas legados?</summary>
+            <div class="faq__answer">
+              <p>Sim, temos vasta experiência em integração com sistemas legados, respeitando a infraestrutura existente enquanto modernizamos os processos ao redor desses sistemas.</p>
+            </div>
+          </details>
+        </div>
+      </div>
+    </section>
+
+    <!-- ============ CONTATO ============ -->
+    <section class="section" id="contato">
+      <div class="container contact">
+        <div class="contact__info">
+          <div class="section-head">
+            <h2>Vamos conversar</h2>
+            <p class="lead">Descubra como a automação inteligente pode ajudar sua empresa a evoluir. Conte o que hoje é manual e a gente mostra o caminho.</p>
+          </div>
+
+          <ul class="contact-list">
+            <li>
+              <a href="mailto:nanomind@outlook.com.br">
+                <span class="contact-list__icon"><svg class="icon" aria-hidden="true"><use href="#i-mail"/></svg></span>
+                <span><span class="contact-list__label">E-mail</span><span class="contact-list__value">nanomind@outlook.com.br</span></span>
+              </a>
+            </li>
+            <li>
+              <a href="https://api.whatsapp.com/send?phone=5511945403785" target="_blank" rel="noopener">
+                <span class="contact-list__icon"><svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg></span>
+                <span><span class="contact-list__label">WhatsApp</span><span class="contact-list__value">(11) 94540-3785</span></span>
+              </a>
+            </li>
+            <li>
+              <div class="contact-list__static">
+                <span class="contact-list__icon"><svg class="icon" aria-hidden="true"><use href="#i-pin"/></svg></span>
+                <span><span class="contact-list__label">Escritório</span><span class="contact-list__value">São Paulo, SP</span></span>
+              </div>
+            </li>
+          </ul>
+        </div>
+
+        <!--
+          FORMULÁRIO (backendless)
+
+          OPÇÃO A: Formspree (padrão abaixo)
+            1. Crie o form em https://formspree.io e copie o ID (ex.: xyzabcde)
+            2. Troque SEU_ID_AQUI no action pelo ID
+
+          OPÇÃO B: Web3Forms
+            1. Gere a Access Key em https://web3forms.com (grátis, com seu e-mail)
+            2. Troque o action por: https://api.web3forms.com/submit
+            3. Adicione dentro do <form>:
+               <input type="hidden" name="access_key" value="SUA_ACCESS_KEY">
+               <input type="hidden" name="subject" value="Novo contato pelo site nanomind.com.br">
+               <input type="checkbox" name="botcheck" class="sr-only" tabindex="-1" autocomplete="off" style="display:none">
+        -->
+        <form class="form glass" id="contact-form" action="https://formspree.io/f/SEU_ID_AQUI" method="POST">
+          <h3 class="form__title">Solicitar consultoria</h3>
+
+          <input type="hidden" name="_subject" value="Novo contato pelo site nanomind.com.br">
+          <!-- Campo isca contra robôs: deve ficar vazio -->
+          <input type="text" name="_gotcha" class="sr-only" tabindex="-1" autocomplete="off" aria-hidden="true">
+
+          <div class="form__grid">
+            <div class="field">
+              <label for="nome">Nome</label>
+              <input id="nome" name="nome" type="text" autocomplete="name" required placeholder="Seu nome">
+            </div>
+            <div class="field">
+              <label for="email">E-mail corporativo</label>
+              <input id="email" name="email" type="email" autocomplete="email" required placeholder="voce@suaempresa.com.br">
+            </div>
+            <div class="field field--full">
+              <label for="telefone">WhatsApp ou telefone</label>
+              <input id="telefone" name="telefone" type="tel" inputmode="tel" autocomplete="tel" required placeholder="(11) 90000-0000">
+            </div>
+            <div class="field field--full">
+              <label for="mensagem">Descrição da necessidade</label>
+              <textarea id="mensagem" name="mensagem" rows="5" required minlength="10" placeholder="Qual processo manual você quer automatizar? Quais sistemas estão envolvidos?"></textarea>
+            </div>
+          </div>
+
+          <div class="form__actions">
+            <button class="btn btn--primary" type="submit">
+              Enviar mensagem
+              <svg class="icon icon--arrow" aria-hidden="true"><use href="#i-arrow"/></svg>
+            </button>
+            <button class="btn btn--ghost" type="button" id="whatsapp-btn">
+              <svg class="icon" aria-hidden="true"><use href="#i-chat"/></svg>
+              Continuar no WhatsApp
+            </button>
+          </div>
+
+          <p class="form__status" id="form-status" role="status" aria-live="polite"></p>
+          <p class="form__note">Usamos seus dados apenas para retornar este contato.</p>
+        </form>
+      </div>
+    </section>
+  </main>
+
+  <!-- ============ RODAPÉ ============ -->
+  <footer class="site-footer">
+    <div class="container site-footer__inner">
+      <div class="site-footer__brand">
+        <a class="brand" href="#topo" aria-label="Nanomind, voltar ao topo">
+          <span class="brand__mark" aria-hidden="true"><svg class="icon icon--logo"><use href="#i-logo"/></svg></span>
+          <span class="brand__name">Nanomind</span>
+        </a>
+        <p>Transformando processos, impulsionando resultados.</p>
+      </div>
+
+      <nav aria-label="Rodapé">
+        <ul class="site-footer__links">
+          <li><a href="#sobre">Sobre</a></li>
+          <li><a href="#servicos">Serviços</a></li>
+          <li><a href="#portfolio">Portfólio</a></li>
+          <li><a href="#faq">FAQ</a></li>
+          <li><a href="#contato">Contato</a></li>
+          <!-- Quando tiver, adicione aqui o link do LinkedIn da empresa -->
+        </ul>
+      </nav>
+    </div>
+    <div class="container site-footer__legal">
+      <p>&copy; <span id="year">2026</span> Nanomind. Todos os direitos reservados.</p>
+    </div>
+  </footer>
 </body>
 </html>
