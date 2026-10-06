@@ -440,14 +440,15 @@
             1. Gere a Access Key em https://web3forms.com (grátis, com seu e-mail)
             2. Troque o action por: https://api.web3forms.com/submit
             3. Adicione dentro do <form>:
-               <input type="hidden" name="access_key" value="SUA_ACCESS_KEY">
+               <input type="hidden" name="access_key" value="52dd4eec-a8cb-49e4-9c5c-773688bfa782">
                <input type="hidden" name="subject" value="Novo contato pelo site nanomind.com.br">
                <input type="checkbox" name="botcheck" class="sr-only" tabindex="-1" autocomplete="off" style="display:none">
         -->
-        <form class="form glass" id="contact-form" action="https://formspree.io/f/SEU_ID_AQUI" method="POST">
+        <form class="form glass" id="contact-form" action="https://api.web3forms.com/submit" method="POST">
           <h3 class="form__title">Solicitar consultoria</h3>
+          <input type="hidden" name="access_key" value="52dd4eec-a8cb-49e4-9c5c-773688bfa782"> 
+          <input type="hidden" name="subject" value="Novo contato pelo site nanomind.com.br">
 
-          <input type="hidden" name="_subject" value="Novo contato pelo site nanomind.com.br">
           <!-- Campo isca contra robôs: deve ficar vazio -->
           <input type="text" name="_gotcha" class="sr-only" tabindex="-1" autocomplete="off" aria-hidden="true">
 
